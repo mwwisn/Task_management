@@ -43,7 +43,69 @@ docker-compose run --rm app sh -c "python manage.py migrate"
 docker-compose up
 ```
 
-Aplikacja będzie dostępna pod adresem:
+### Aplikacja będzie dostępna pod adresem:
 
 http://127.0.0.1:8000/
 
+### Testowanie
+## aby uruchomic testy
+```bash
+docker-compose run --rm app sh -c "python manage.py test"
+```
+
+
+### Przykładowe użycie API
+
+### Rejestracja użytkownika
+
+## URL: /api/user/create/
+
+Metoda: POST
+
+Typ danych: multipart/form-data
+
+### Uwierzytelnienie (token)
+
+## URL: /api/user/token/
+
+Metoda: POST
+
+Typ danych: application/x-www-form-urlencoded
+
+### Operacje na zadaniach
+
+### Edycja zadania
+
+## URL: /api/task/tasks/{id}/
+
+Metoda: PATCH
+
+Typ danych: application/json
+
+
+### Wyświetlenie szczegółów zadania
+
+## URL: /api/task/tasks/{id}/
+
+Metoda: GET
+
+### Filtrowanie zadań
+
+## URL: /api/task/tasks/
+
+Metoda: GET
+
+Możliwości filtrowania: po id, nazwie, opisie, statusie, przypisanym użytkowniku
+
+### Historia zmian zadania
+
+## URL: /api/task/tasks/{id}/history/
+
+Metoda: GET
+
+Opis: Pozwala sprawdzić, jak zmieniały się pola zadania w czasie.
+
+### Usuwanie zadania
+## URL: /api/task/tasks/{id}/
+
+Metoda: DELETE
